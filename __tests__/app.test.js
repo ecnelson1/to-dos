@@ -69,5 +69,26 @@ describe('app routes', () => {
 
       expect(data.body).toEqual([dbTodo]);
     });
+    test('Updates a todo', async() => {
+
+      const updatedTd = {
+        todo: 'wash car',
+        completed: true
+      };
+      const updateddbTd = {
+        ...updatedTd,
+        user_id: 2,
+        id: 4,
+      };
+
+      const data = await fakeRequest(app)
+        .put('/api/todos/4')
+        .send(updatedTd)
+        .set('Authorization', token)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(updateddbTd);
+    });
   });
 });
