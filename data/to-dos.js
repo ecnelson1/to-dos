@@ -7,7 +7,7 @@ module.exports = [
   {
     todo: 'Rake the Leaves',
     completed: false,
-    user_id: 1
+    user_id: 2
   }, 
   {
     todo: 'Mow the Lawn',
